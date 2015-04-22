@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+         http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.cml.mvc.*" />
+
+	<mvc:annotation-driven
+		content-negotiation-manager="contentNegotiationManager"
+		conversion-service="conversionService">
+	</mvc:annotation-driven>
+
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="favorPathExtension" value="false" />
+		<property name="favorParameter" value="true" />
+		<property name="mediaTypes">
+			<value>
+				json=application/json
+				xml=application/xml
+			</value>
+		</property>
+	</bean>
+
+	<!-- 拦截器配置 -->
+	<!-- <mvc:interceptors> <bean class="com.cml.mvc.interceptor.TokenInterceptor"></bean> 
+		<bean class="com.cml.mvc.interceptor.TokenInterceptor2"></bean> </mvc:interceptors> -->
+
+
+	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<!-- 转换器设置 -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- <property name="converters"> <set> <bean class="org.example.MyConverter" 
+			/> </set> </property> -->
+		<property name="formatters">
+			<set>
+				<!-- <bean class="com.cml.mvc.property.formatter.JodaTimeFormatter" /> -->
+				<bean
+					class="org.springframework.format.number.NumberFormatAnnotationFormatterFactory" />
+			</set>
+		</property>
+		<property name="formatterRegistrars">
+			<set>
+				<bean
+					class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar">
+					<property name="dateFormatter">
+						<bean
+							class="org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean">
+							<property name="pattern" value="yyyyMMdd" />
+						</bean>
+					</property>
+				</bean>
+			</set>
+		</property>
+		<!-- <property name="formatterRegistrars"> <set> <bean class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar"> 
+			<property name="dateFormatter"> <bean class="org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean"> 
+			<property name="pattern" value="yyyyMMdd HHmmss" /> </bean> </property> </bean> 
+			</set> </property> -->
+	</bean>
+
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> 
+		<property name="propertyEditorRegistrars"> <list> <ref bean="customPropertyEditorRegistrar" 
+		/> </list> </property> </bean> <bean id="customPropertyEditorRegistrar" class="com.cml.mvc.property.editor.BasePropertyEditor" 
+		/> -->
+</beans>
