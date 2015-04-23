@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cml.mvc.beans.Result;
+
 @Controller
 @Scope(value = "prototype")
 public class HelloWorld {
@@ -33,13 +35,16 @@ public class HelloWorld {
 	}
 
 	@RequestMapping("/times")
-	public DateTime getTime(@RequestParam DateTime time, Integer id,
+	@ResponseBody
+	public Result getTime(@RequestParam DateTime time, Integer id,
 			ModelAndView model) {
 		log.debug("==========>getTime,time:" + time);
 		log.debug("==========>getTime,id:" + id);
 		model.setViewName("time");
 		model.addObject("time", time);
-		return time;
+		Result result=new Result();
+		result.setA(1);
+		return result;
 	}
 
 	@ResponseBody
