@@ -12,13 +12,23 @@ import com.cml.mvc.property.editor.JodaTimePropertyEditor;
 public class BaseWebBindingInital implements WebBindingInitializer {
 	private static final Log LOG = LogFactory
 			.getLog(BaseWebBindingInital.class);
+	
+	private String timeFormatter;
 
 	@Override
 	public void initBinder(WebDataBinder binder, WebRequest request) {
-		binder.registerCustomEditor(DateTime.class,
-				new JodaTimePropertyEditor());
+		binder.registerCustomEditor(DateTime.class, new JodaTimePropertyEditor(
+				timeFormatter));
 		LOG.debug("BaseWebBindingInital->initBinder=====>sessionId:"
-				+ request.getSessionId());
+				+ Thread.currentThread().getId());
+	}
+
+	public String getTimeFormatter() {
+		return timeFormatter;
+	}
+
+	public void setTimeFormatter(String timeFormatter) {
+		this.timeFormatter = timeFormatter;
 	}
 
 }
