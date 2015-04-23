@@ -12,6 +12,18 @@
 
 	<context:component-scan base-package="com.cml.mvc.*" />
 
+	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+
 	<mvc:annotation-driven
 		content-negotiation-manager="contentNegotiationManager"
 		conversion-service="conversionService">
@@ -34,20 +46,10 @@
 		<bean class="com.cml.mvc.interceptor.TokenInterceptor2"></bean> </mvc:interceptors> -->
 
 
-	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="messageConverters">
-			<list>
-				<bean
-					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
-			</list>
-		</property>
-	</bean>
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/html;charset=UTF-8</value>
@@ -69,22 +71,7 @@
 			/> </set> </property> -->
 		<property name="formatters">
 			<set>
-				<!-- <bean class="com.cml.mvc.property.formatter.JodaTimeFormatter" /> -->
-				<bean
-					class="org.springframework.format.number.NumberFormatAnnotationFormatterFactory" />
-			</set>
-		</property>
-		<property name="formatterRegistrars">
-			<set>
-				<bean
-					class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar">
-					<property name="dateFormatter">
-						<bean
-							class="org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean">
-							<property name="pattern" value="yyyyMMdd" />
-						</bean>
-					</property>
-				</bean>
+				<bean class="com.cml.mvc.property.formatter.JodaTimeFormatter" />
 			</set>
 		</property>
 		<!-- <property name="formatterRegistrars"> <set> <bean class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar"> 
