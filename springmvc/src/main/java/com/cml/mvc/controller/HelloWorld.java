@@ -32,7 +32,6 @@ public class HelloWorld {
 		return "index";
 	}
 
-	@ResponseBody
 	@RequestMapping("/times")
 	public DateTime getTime(@RequestParam DateTime time, Integer id,
 			ModelAndView model) {

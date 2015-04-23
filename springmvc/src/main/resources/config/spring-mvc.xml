@@ -20,6 +20,11 @@
 	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
 	<bean
 		class=" org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="customReturnValueHandlers">
+			<list>
+				<bean class="com.cml.mvc.base.MyReturnValues"></bean>
+			</list>
+		</property>
 		<property name="messageConverters">
 			<list>
 				<ref bean="mappingJacksonHttpMessageConverter" />
@@ -55,6 +60,9 @@
 	</bean>
 
 	<!-- 取代mvc:annotation-driven> end -->
+	<mvc:interceptors>
+		<bean class="com.cml.mvc.interceptor.TokenInterceptor"></bean>
+	</mvc:interceptors>
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
