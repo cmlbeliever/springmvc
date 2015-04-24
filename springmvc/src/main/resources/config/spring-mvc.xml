@@ -20,6 +20,13 @@
 	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
 	<bean
 		class=" org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<!-- 自定义返回值拦截 -->
+		<property name="responseBodyAdvice">
+			<list>
+				<bean class="com.cml.mvc.base.MyResponseBodyAdvice"></bean>
+			</list>
+		</property>
+		<!-- 自定义返回值校验 -->
 		<property name="customReturnValueHandlers">
 			<list>
 				<bean class="com.cml.mvc.base.MyReturnValues"></bean>
