@@ -44,7 +44,7 @@ public class HelloWorld {
 		model.addObject("time", time);
 		Result result=new Result();
 		result.setA(1);
-		return null;
+		return result;
 	}
 
 	@ResponseBody
