@@ -1,5 +1,8 @@
 package com.cml.mvc.beans;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Result {
 	private Integer a;
 	private String b;
