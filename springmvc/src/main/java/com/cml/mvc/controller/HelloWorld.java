@@ -7,25 +7,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
-import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
 import com.cml.mvc.beans.Result;
-import com.oracle.webservices.internal.api.databinding.Databinding;
 
 @Controller
-@Scope(value = "prototype")
 public class HelloWorld {
 
 	Log log = LogFactory.getLog(HelloWorld.class);
@@ -41,7 +33,8 @@ public class HelloWorld {
 	@RequestMapping("/str")
 	@ResponseBody
 	public String str(String str) throws Exception {
-		log.debug("==========>str:" + str);
+		log.debug("==========>names:" + names);
+		names = "test:" + str;
 		if (null == str) {
 			throw new Exception("xxxxx");
 		}
