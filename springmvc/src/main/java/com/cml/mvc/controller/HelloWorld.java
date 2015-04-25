@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
-import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
@@ -43,12 +42,9 @@ public class HelloWorld {
 
 	@RequestMapping("/times")
 	@ResponseBody
-	public Result getTime(Integer id, @RequestParam DateTime time,
-			BindException e) {
+	public Result getTime(@RequestParam Integer id, @RequestParam DateTime time) {
 		log.debug("==========>getTime,time:" + time);
 		log.debug("==========>getTime,id:" + id);
-		log.debug("==========>getTime,results:" + e);
-		// ExceptionHandlerExceptionResolver
 		Result result = new Result();
 		result.setA(1);
 		return result;

@@ -39,7 +39,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 			result.setResult("500 服务器异常！");
 		}
 
-		response.setHeader("content-type", "application/json");
+		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		try {
 			Writer writer = response.getWriter();
