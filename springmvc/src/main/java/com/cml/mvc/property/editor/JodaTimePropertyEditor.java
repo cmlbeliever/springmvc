@@ -56,20 +56,11 @@ public class JodaTimePropertyEditor extends PropertyEditorSupport {
 			try {
 				setValue(format.parseDateTime(text));
 			} catch (Exception e) {
-				LOG.debug("format datetime error:" + e.getMessage() + ",value:"
-						+ text);
+				throw new IllegalArgumentException("Could not parse date: "
+						+ e.getMessage(), e);
 			}
 
 		}
 
 	}
-
-	public String getFormatter() {
-		return formatter;
-	}
-
-	public void setFormatter(String formatter) {
-		this.formatter = formatter;
-	}
-
 }

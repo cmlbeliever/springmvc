@@ -77,7 +77,23 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- 转换器设置 -->
+	<!-- 异常错误信息捕获 -->
+	<bean name="exceptionResolver" class="com.cml.mvc.exception.MyExceptionHandler">
+		<property name="messageSource" ref="messageSource"></property>
+	</bean>
+
+
+	<!-- 国际化 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 转换器设置 （无效） -->
 	<bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<!-- <property name="converters"> <set> <bean class="org.example.MyConverter" 
@@ -92,6 +108,7 @@
 			<property name="pattern" value="yyyyMMdd HHmmss" /> </bean> </property> </bean> 
 			</set> </property> -->
 	</bean>
+
 
 	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> 
 		<property name="propertyEditorRegistrars"> <list> <ref bean="customPropertyEditorRegistrar" 

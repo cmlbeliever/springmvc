@@ -7,8 +7,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
+import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
 
 import com.cml.mvc.beans.Result;
+import com.oracle.webservices.internal.api.databinding.Databinding;
 
 @Controller
 @Scope(value = "prototype")
@@ -34,15 +38,25 @@ public class HelloWorld {
 		return "index";
 	}
 
+	@RequestMapping("/str")
+	@ResponseBody
+	public String str(String str) throws Exception {
+		log.debug("==========>str:" + str);
+		if (null == str) {
+			throw new Exception("xxxxx");
+		}
+		return "test:" + str;
+	}
+
 	@RequestMapping("/times")
 	@ResponseBody
-	public Result getTime(@RequestParam DateTime time, Integer id,
-			ModelAndView model) {
+	public Result getTime(Integer id, @RequestParam DateTime time,
+			BindException e) {
 		log.debug("==========>getTime,time:" + time);
 		log.debug("==========>getTime,id:" + id);
-		model.setViewName("time");
-		model.addObject("time", time);
-		Result result=new Result();
+		log.debug("==========>getTime,results:" + e);
+		// ExceptionHandlerExceptionResolver
+		Result result = new Result();
 		result.setA(1);
 		return result;
 	}
