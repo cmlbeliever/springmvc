@@ -3,6 +3,7 @@ package com.cml.mvc.validator;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import com.cml.mvc.model.User;
@@ -22,6 +23,7 @@ public class UserValidator implements Validator {
 		LOG.debug("=============validate===>" + target);
 
 		User user = (User) target;
+		ValidationUtils.rejectIfEmpty(errors, "age", "user.age.notnull");
 		errors.reject("123", "我就是不让你过啊！哈哈");
 	}
 
