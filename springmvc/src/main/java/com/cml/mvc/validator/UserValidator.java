@@ -21,10 +21,10 @@ public class UserValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		LOG.debug("=============validate===>" + target);
-
-		User user = (User) target;
-		ValidationUtils.rejectIfEmpty(errors, "age", "user.age.notnull");
-		errors.reject("123", "我就是不让你过啊！哈哈");
+//
+//		User user = (User) target;
+//		ValidationUtils.rejectIfEmpty(errors, "age", "user.age.notnull");
+//		errors.reject("123", "我就是不让你过啊！哈哈");
 	}
 
 }
