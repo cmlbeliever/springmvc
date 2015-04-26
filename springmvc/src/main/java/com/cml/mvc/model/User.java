@@ -1,8 +1,12 @@
 package com.cml.mvc.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -14,7 +18,11 @@ public class User {
 	private String username;
 	private String name;
 	private Integer age;
+	
+	@NotNull
 	private Integer high;
+	
+	@DateTimeFormat(pattern="yyyyMMddHmmss")
 	private DateTime birthday;
 
 	public DateTime getBirthday() {

@@ -19,7 +19,12 @@ public class MyBindErrorProcess implements BindingErrorProcessor {
 	@Override
 	public void processPropertyAccessException(PropertyAccessException ex,
 			BindingResult bindingResult) {
+
 		log.error("绑定错误processPropertyAccessException：" + ex.getMessage());
+		log.info("转换失败：" + ex.getPropertyName());
+		log.info("转换失败：" + ex.getValue());
+		log.info("转换失败：" + ex.getPropertyChangeEvent());
+		bindingResult.reject(ex.getPropertyName() + "转换失败");
 	}
 
 }

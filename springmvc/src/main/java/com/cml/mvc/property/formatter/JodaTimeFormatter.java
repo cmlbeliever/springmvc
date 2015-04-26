@@ -34,12 +34,12 @@ public class JodaTimeFormatter implements Formatter<DateTime> {
 
 	@Override
 	public DateTime parse(String text, Locale locale) throws ParseException {
-		LOG.debug("===>parse:" + text);
+		LOG.debug("===>parse:format=" + format + ",value=" + text);
 		if (null != text) {
 			try {
 				return DateTimeFormat.forPattern(format).parseDateTime(text);
 			} catch (Exception e) {
-				throw new ParseException(e.getMessage(), 1);
+				throw new ParseException("formatter.datetime.error", 1);
 			}
 		}
 		return null;
