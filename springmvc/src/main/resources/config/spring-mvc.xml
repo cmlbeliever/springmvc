@@ -41,10 +41,24 @@
 		<property name="webBindingInitializer">
 			<bean class="com.cml.mvc.base.BaseWebBindingInital">
 				<property name="timeFormatter" value="yyyy-MM-dd HH:mm:ss"></property>
+				<property name="conversionService" ref="conversionService"></property>
+				<property name="bindingErrorProcessor">
+					<bean class="com.cml.mvc.base.MyBindErrorProcess"></bean>
+				</property>
+				<property name="validator" ref="validator"></property>
 			</bean>
 		</property>
 		<property name="contentNegotiationManager" ref="contentNegotiationManager"></property>
 	</bean>
+
+	<!-- 注解校验 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -94,20 +108,16 @@
 		</property>
 	</bean>
 
-	<!-- 转换器设置 （无效） -->
+	<!-- 转换器设置 -->
 	<bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-		<!-- <property name="converters"> <set> <bean class="org.example.MyConverter" 
-			/> </set> </property> -->
 		<property name="formatters">
 			<set>
-				<bean class="com.cml.mvc.property.formatter.JodaTimeFormatter" />
+				<bean class="com.cml.mvc.property.formatter.JodaTimeFormatter">
+					<property name="format" value="yyyy-MM-dd HH:mm:ss"></property>
+				</bean>
 			</set>
 		</property>
-		<!-- <property name="formatterRegistrars"> <set> <bean class="org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar"> 
-			<property name="dateFormatter"> <bean class="org.springframework.format.datetime.joda.DateTimeFormatterFactoryBean"> 
-			<property name="pattern" value="yyyyMMdd HHmmss" /> </bean> </property> </bean> 
-			</set> </property> -->
 	</bean>
 
 

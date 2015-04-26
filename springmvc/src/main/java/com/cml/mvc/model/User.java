@@ -1,8 +1,16 @@
 package com.cml.mvc.model;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
+
+	@NotBlank(message = "{user.name.illegal}")
 	private String username;
 	private String name;
 	private Integer age;
@@ -47,6 +55,12 @@ public class User {
 
 	public void setHigh(Integer high) {
 		this.high = high;
+	}
+
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", name=" + name + ", age=" + age
+				+ ", high=" + high + ", birthday=" + birthday + "]";
 	}
 
 }

@@ -38,7 +38,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		if (null != ex) {
-			ex.printStackTrace();
+//			ex.printStackTrace();
 		}
 		System.out.println("====afterCompletion:" + handler);
 	}

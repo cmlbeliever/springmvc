@@ -1,13 +1,13 @@
 package com.cml.mvc.property.formatter;
 
 import java.text.ParseException;
+import java.text.spi.NumberFormatProvider;
 import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.springframework.format.Formatter;
 
 /**
@@ -21,11 +21,13 @@ public class JodaTimeFormatter implements Formatter<DateTime> {
 
 	private static final Log LOG = LogFactory.getLog(JodaTimeFormatter.class);
 
+	private String format;
+
 	@Override
 	public String print(DateTime object, Locale locale) {
 		LOG.debug("===>print:" + object);
 		if (null != object) {
-			return object.toString("yyyyMMdd HH");
+			return object.toString(format);
 		}
 		return null;
 	}
@@ -35,14 +37,20 @@ public class JodaTimeFormatter implements Formatter<DateTime> {
 		LOG.debug("===>parse:" + text);
 		if (null != text) {
 			try {
-				return DateTimeFormat.forPattern("yyyyMMdd HHmmss")
-						.parseDateTime(text);
+				return DateTimeFormat.forPattern(format).parseDateTime(text);
 			} catch (Exception e) {
-				LOG.debug("===>parse exeception:text：" + text + ",error:"
-						+ e.getMessage());
+				throw new ParseException(e.getMessage(), 1);
 			}
 		}
-		return new DateTime();
+		return null;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
 	}
 
 }
