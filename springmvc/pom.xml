@@ -6,18 +6,6 @@
 	<groupId>springmvc</groupId>
 	<artifactId>springmvc</artifactId>
 	<version>1</version>
-	<properties>
-		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.mvc>4.1.5.RELEASE</spring.mvc>
-		<spring.web>4.1.6.RELEASE</spring.web>
-		<spring.test>4.1.6.RELEASE</spring.test>
-		<joda.version>2.7</joda.version>
-		<jackson.version>2.5.2</jackson.version>
-		<log4j>1.2.17</log4j>
-		<servlet.api>3.1.0</servlet.api>
-		<gson.version>2.3.1</gson.version>
-		<hibernate.valid>5.1.3.Final</hibernate.valid>
-	</properties>
 
 	<repositories>
 		<repository>
@@ -28,66 +16,10 @@
 	</repositories>
 
 	<dependencies>
-
 		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>javax.el-api</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate.valid}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-			<version>${spring.test}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>${gson.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.web}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.mvc}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${servlet.api}</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${joda.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
+			<groupId>springmvc</groupId>
+			<artifactId>springmvc-base</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 </project>
