@@ -1,4 +1,4 @@
-package com.cml.mvc.framework.property.formatter;
+package com.cml.mvc.framework.formatter;
 
 import java.text.ParseException;
 import java.text.spi.NumberFormatProvider;
