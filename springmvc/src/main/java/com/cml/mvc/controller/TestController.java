@@ -8,6 +8,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import com.cml.mvc.framework.controller.HelloWorld;
+
 public class TestController implements Controller {
 
 	private static Log log = LogFactory.getLog(HelloWorld.class);

@@ -1,4 +1,4 @@
-package com.cml.mvc.base;
+package com.cml.mvc.framework.base;
 
 import org.joda.time.DateTime;
 import org.springframework.core.MethodParameter;

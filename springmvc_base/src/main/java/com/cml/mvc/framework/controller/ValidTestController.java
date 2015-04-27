@@ -1,4 +1,4 @@
-package com.cml.mvc.controller;
+package com.cml.mvc.framework.controller;
 
 import javax.validation.Valid;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cml.mvc.model.User;
-import com.cml.mvc.validator.UserValidator;
+import com.cml.mvc.framework.model.User;
+import com.cml.mvc.framework.validator.UserValidator;
 
 @Controller
 public class ValidTestController {

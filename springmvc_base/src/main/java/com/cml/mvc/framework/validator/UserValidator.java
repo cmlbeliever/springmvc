@@ -1,4 +1,4 @@
-package com.cml.mvc.validator;
+package com.cml.mvc.framework.validator;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.cml.mvc.model.User;
+import com.cml.mvc.framework.model.User;
 
 public class UserValidator implements Validator {
 

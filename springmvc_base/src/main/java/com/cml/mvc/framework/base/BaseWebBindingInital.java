@@ -1,4 +1,4 @@
-package com.cml.mvc.base;
+package com.cml.mvc.framework.base;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
 import org.springframework.web.bind.support.WebBindingInitializer;
 import org.springframework.web.context.request.WebRequest;
 
-import com.cml.mvc.property.editor.JodaTimePropertyEditor;
-import com.cml.mvc.validator.UserValidator;
+import com.cml.mvc.framework.property.editor.JodaTimePropertyEditor;
+import com.cml.mvc.framework.validator.UserValidator;
 
 public class BaseWebBindingInital extends ConfigurableWebBindingInitializer {
 	private static final Log LOG = LogFactory

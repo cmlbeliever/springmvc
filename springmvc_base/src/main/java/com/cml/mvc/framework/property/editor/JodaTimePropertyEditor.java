@@ -1,4 +1,4 @@
-package com.cml.mvc.property.editor;
+package com.cml.mvc.framework.property.editor;
 
 import java.beans.PropertyEditorSupport;
 

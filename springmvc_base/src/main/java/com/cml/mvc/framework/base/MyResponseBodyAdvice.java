@@ -1,4 +1,4 @@
-package com.cml.mvc.base;
+package com.cml.mvc.framework.base;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,7 +10,7 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.cml.mvc.beans.Result;
+import com.cml.mvc.framework.beans.Result;
 
 public class MyResponseBodyAdvice implements ResponseBodyAdvice<Result> {
 

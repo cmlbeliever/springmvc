@@ -1,4 +1,4 @@
-package com.cml.mvc.controller;
+package com.cml.mvc.framework.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cml.mvc.beans.Result;
+import com.cml.mvc.framework.beans.Result;
 
 @Controller
 public class HelloWorld {

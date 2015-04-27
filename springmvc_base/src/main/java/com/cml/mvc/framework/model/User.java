@@ -1,4 +1,4 @@
-package com.cml.mvc.model;
+package com.cml.mvc.framework.model;
 
 import javax.validation.constraints.NotNull;
 

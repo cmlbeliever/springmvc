@@ -1,4 +1,4 @@
-package com.cml.mvc.interceptor;
+package com.cml.mvc.framework.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

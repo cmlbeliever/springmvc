@@ -1,4 +1,4 @@
-package com.cml.mvc.base;
+package com.cml.mvc.framework.base;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

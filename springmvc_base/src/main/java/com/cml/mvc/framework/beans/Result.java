@@ -1,4 +1,4 @@
-package com.cml.mvc.beans;
+package com.cml.mvc.framework.beans;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

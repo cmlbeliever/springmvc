@@ -1,4 +1,4 @@
-package com.cml.mvc.controller;
+package com.cml.mvc.framework.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

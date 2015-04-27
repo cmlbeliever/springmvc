@@ -10,7 +10,7 @@
          http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.cml.mvc.*" />
+	<context:component-scan base-package="com.cml.mvc.framework.*" />
 	
 	<!-- 取代mvc:annotation-driven> -->
 	<bean
@@ -23,13 +23,13 @@
 		<!-- 自定义返回值拦截 -->
 		<property name="responseBodyAdvice">
 			<list>
-				<bean class="com.cml.mvc.base.MyResponseBodyAdvice"></bean>
+				<bean class="com.cml.mvc.framework.base.MyResponseBodyAdvice"></bean>
 			</list>
 		</property>
 		<!-- 自定义返回值校验 -->
 		<property name="customReturnValueHandlers">
 			<list>
-				<bean class="com.cml.mvc.base.MyReturnValues"></bean>
+				<bean class="com.cml.mvc.framework.base.MyReturnValues"></bean>
 			</list>
 		</property>
 		<property name="messageConverters">
@@ -39,11 +39,11 @@
 		</property>
 		<!-- 注入全局的propertiesEditor -->
 		<property name="webBindingInitializer">
-			<bean class="com.cml.mvc.base.BaseWebBindingInital">
+			<bean class="com.cml.mvc.framework.base.BaseWebBindingInital">
 				<property name="timeFormatter" value="yyyy-MM-dd HH:mm:ss"></property>
 				<property name="conversionService" ref="conversionService"></property>
 				<property name="bindingErrorProcessor">
-					<bean class="com.cml.mvc.base.MyBindErrorProcess"></bean>
+					<bean class="com.cml.mvc.framework.base.MyBindErrorProcess"></bean>
 				</property>
 				<property name="validator" ref="validator"></property>
 			</bean>
@@ -83,7 +83,7 @@
 
 	<!-- 取代mvc:annotation-driven> end -->
 	<mvc:interceptors>
-		<bean class="com.cml.mvc.interceptor.TokenInterceptor"></bean>
+		<bean class="com.cml.mvc.framework.interceptor.TokenInterceptor"></bean>
 	</mvc:interceptors>
 
 	<bean
@@ -93,7 +93,7 @@
 	</bean>
 
 	<!-- 异常错误信息捕获 -->
-	<bean name="exceptionResolver" class="com.cml.mvc.exception.MyExceptionHandler">
+	<bean name="exceptionResolver" class="com.cml.mvc.framework.exception.MyExceptionHandler">
 		<property name="messageSource" ref="messageSource"></property>
 	</bean>
 
@@ -113,7 +113,7 @@
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="formatters">
 			<set>
-				<bean class="com.cml.mvc.property.formatter.JodaTimeFormatter">
+				<bean class="com.cml.mvc.framework.property.formatter.JodaTimeFormatter">
 					<property name="format" value="yyyy-MM-dd HH:mm:ss"></property>
 				</bean>
 			</set>
@@ -123,6 +123,6 @@
 
 	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> 
 		<property name="propertyEditorRegistrars"> <list> <ref bean="customPropertyEditorRegistrar" 
-		/> </list> </property> </bean> <bean id="customPropertyEditorRegistrar" class="com.cml.mvc.property.editor.BasePropertyEditor" 
+		/> </list> </property> </bean> <bean id="customPropertyEditorRegistrar" class="com.cml.mvc.framework.property.editor.BasePropertyEditor" 
 		/> -->
 </beans>

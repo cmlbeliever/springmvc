@@ -1,4 +1,4 @@
-package com.cml.mvc.exception;
+package com.cml.mvc.framework.exception;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
