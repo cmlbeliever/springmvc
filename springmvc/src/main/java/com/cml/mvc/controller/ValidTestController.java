@@ -14,7 +14,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cml.mvc.framework.util.ErrorsUtil;
 import com.cml.mvc.model.User;
 import com.cml.mvc.validator.UserValidator;
 
@@ -29,18 +31,15 @@ public class ValidTestController {
 		binder.addValidators(new UserValidator());
 	}
 
+	@ResponseBody
 	@RequestMapping("/user")
 	public String testUser(@Valid @ModelAttribute("user") User user,
 			BindingResult result) {
-		List<ObjectError> errors = result.getAllErrors();
 
-		for (ObjectError error : errors) {
-			log.debug("====errors:====" + error.getObjectName());
-			log.debug("====errors:====" + error.getCode());
-			log.debug("====errors:====" + error.getDefaultMessage());
+		if (result.hasErrors()) {
+			return ErrorsUtil.getAllErrors(result);
 		}
 
-		user.setBirthday(new DateTime());
 		log.debug("用户信息校验：" + user);
 		log.debug("用户信息校验：" + result.hasErrors());
 		log.debug("用户信息校验：" + result.getAllErrors());
