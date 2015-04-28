@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.cml.mvc.framework.model.User;
+import com.cml.mvc.model.User;
 
 public class UserValidator implements Validator {
 

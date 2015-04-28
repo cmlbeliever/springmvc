@@ -9,7 +9,7 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.cml.mvc.framework.beans.Result;
+import com.cml.mvc.beans.Result;
 
 public class MyResponseBodyAdvice implements ResponseBodyAdvice<Result> {
 

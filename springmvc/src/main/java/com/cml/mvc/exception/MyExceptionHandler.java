@@ -14,7 +14,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cml.mvc.framework.beans.Result;
+import com.cml.mvc.beans.Result;
 import com.google.gson.Gson;
 
 public class MyExceptionHandler implements HandlerExceptionResolver {
