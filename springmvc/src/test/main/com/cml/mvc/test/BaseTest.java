@@ -13,7 +13,7 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:config/applicationContext.xml",
+@ContextConfiguration(locations = { "classpath:config/applicationContext-standalone.xml",
 		"classpath:config/spring-mvc.xml" })
 public class BaseTest {
 	@Autowired

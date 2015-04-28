@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cml.mvc.beans.User;
 import com.cml.mvc.web.user.service.UserService;
@@ -15,8 +16,9 @@ public class UserController {
 	@Resource
 	private UserService userService;
 
+	@ResponseBody
 	@RequestMapping("/addUser")
-	public void addUser() {
+	public User addUser() {
 
 		System.out.println("ccccc");
 
@@ -25,6 +27,8 @@ public class UserController {
 
 		userService.addUser(user);
 		System.out.println("ddddd");
+
+		return user;
 
 	}
 }

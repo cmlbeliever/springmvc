@@ -24,6 +24,7 @@
 		<mybaits.spring>1.2.2</mybaits.spring>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<javax.annotation>1.2</javax.annotation>
+		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<repositories>
@@ -41,7 +42,12 @@
 			<artifactId>javax.annotation-api</artifactId>
 			<version>${javax.annotation}</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
