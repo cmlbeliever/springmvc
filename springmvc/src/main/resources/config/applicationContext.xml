@@ -13,6 +13,8 @@
 		<property name="locations">
 			<list>
 				<value>classpath:config/config.properties</value>
+				<value>classpath:config/dao/jdbc.properties</value>
+				<value>classpath:config/shiro/shiro.properties</value>
 			</list>
 		</property>
 	</bean>
