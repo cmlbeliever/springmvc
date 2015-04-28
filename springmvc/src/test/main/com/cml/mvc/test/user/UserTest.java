@@ -15,7 +15,7 @@ public class UserTest extends BaseTest {
 	public void testUser() throws Exception {
 
 		RequestBuilder request = MockMvcRequestBuilders.post("/user.mvc")
-				.param("name", "222").param("username", "1").param("age", "123a").param("birthday", "112015-11-10 11:11:11").param("high", "11");
+				.param("name", "222").param("username", "1").param("age", "123a").param("birthday", "1a2015-11-10 11:11:11").param("high", "11");
 		this.mockMvc.perform(request)
 		// .andExpect(status().isOk())
 		// .andExpect(

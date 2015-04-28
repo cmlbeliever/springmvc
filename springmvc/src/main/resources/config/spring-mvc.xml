@@ -64,6 +64,7 @@
 	<!-- 校验 绑定错误信息 -->
 	<bean id="bindErrorProcess" class="com.cml.mvc.framework.base.DefaultBindErrorProcess">
 		<property name="rejectOnError" value="true"></property>
+		<property name="messageSource" ref="messageSource"></property>
 	</bean>
 
 	<!-- 注解校验 -->

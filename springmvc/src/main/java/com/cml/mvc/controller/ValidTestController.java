@@ -1,5 +1,7 @@
 package com.cml.mvc.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.apache.commons.logging.Log;
@@ -7,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +32,14 @@ public class ValidTestController {
 	@RequestMapping("/user")
 	public String testUser(@Valid @ModelAttribute("user") User user,
 			BindingResult result) {
+		List<ObjectError> errors = result.getAllErrors();
+
+		for (ObjectError error : errors) {
+			log.debug("====errors:====" + error.getObjectName());
+			log.debug("====errors:====" + error.getCode());
+			log.debug("====errors:====" + error.getDefaultMessage());
+		}
+
 		user.setBirthday(new DateTime());
 		log.debug("用户信息校验：" + user);
 		log.debug("用户信息校验：" + result.hasErrors());

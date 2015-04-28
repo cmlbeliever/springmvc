@@ -1,10 +1,15 @@
 package com.cml.mvc.framework.base;
 
+import java.util.Locale;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.PropertyAccessException;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
+
+import com.cml.mvc.framework.service.ConfigurationUtil;
 
 /**
  * 绑定错误信息处理类<br/>
@@ -19,8 +24,10 @@ public class DefaultBindErrorProcess implements BindingErrorProcessor {
 
 	private static Log log = LogFactory.getLog(DefaultBindErrorProcess.class);
 
-	public static final String SUFFIX_MISSING = ".miss";
-	public static final String SUFFIX_PARSE_INVALID = ".parse.invalid";
+	public static final String CODE_FIELD_MISSING = "error.field.miss";
+	public static final String CODE_PARSE_INVALID = "error.parse.invalid";
+
+	private ResourceBundleMessageSource messageSource;
 
 	private boolean rejectOnError;
 
@@ -28,7 +35,9 @@ public class DefaultBindErrorProcess implements BindingErrorProcessor {
 	public void processMissingFieldError(String missingField,
 			BindingResult bindingResult) {
 		if (rejectOnError) {
-			bindingResult.reject(missingField + SUFFIX_MISSING);
+			String error = messageSource.getMessage(CODE_FIELD_MISSING,
+					new String[] { missingField }, Locale.getDefault());
+			bindingResult.reject(missingField, error);
 		}
 	}
 
@@ -37,7 +46,9 @@ public class DefaultBindErrorProcess implements BindingErrorProcessor {
 			BindingResult bindingResult) {
 
 		if (rejectOnError) {
-			bindingResult.reject(ex.getPropertyName() + SUFFIX_PARSE_INVALID);
+			String error = messageSource.getMessage(CODE_PARSE_INVALID,
+					new String[] { ex.getPropertyName() }, Locale.getDefault());
+			bindingResult.reject(ex.getPropertyName(), error);
 		}
 
 		log.debug("processPropertyAccessException==>proName:["
@@ -45,12 +56,12 @@ public class DefaultBindErrorProcess implements BindingErrorProcessor {
 
 	}
 
-	public boolean isRejectOnError() {
-		return rejectOnError;
-	}
-
 	public void setRejectOnError(boolean rejectOnError) {
 		this.rejectOnError = rejectOnError;
+	}
+
+	public void setMessageSource(ResourceBundleMessageSource messageSource) {
+		this.messageSource = messageSource;
 	}
 
 }
