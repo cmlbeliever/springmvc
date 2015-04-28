@@ -46,7 +46,10 @@ public class DefaultWebBindingInitializer extends
 			String key = editorIt.next();
 			Object value = editors.get(key);
 
-			if (null == value || !(value instanceof PropertiesEditor)) {
+			LOG.debug("inject property editors ==>key:" + key + ","
+					+ value.getClass());
+
+			if (null == value || !(value instanceof PropertyEditor)) {
 				throw new IllegalArgumentException(
 						"editor must be instance of PropertiesEditor！");
 			}

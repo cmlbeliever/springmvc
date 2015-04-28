@@ -1,16 +1,11 @@
 package com.cml.mvc.test.user;
 
-import java.text.DateFormat;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import org.junit.Test;
-import org.springframework.format.datetime.DateFormatter;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.cml.mvc.test.BaseTest;
 
@@ -20,7 +15,7 @@ public class UserTest extends BaseTest {
 	public void testUser() throws Exception {
 
 		RequestBuilder request = MockMvcRequestBuilders.post("/user.mvc")
-				.param("name", "222").param("username", "1").param("age", "123a").param("birthday", "2015-11-10 11:11:11").param("high", "11");
+				.param("name", "222").param("username", "1").param("age", "123a").param("birthday", "112015-11-10 11:11:11").param("high", "11");
 		this.mockMvc.perform(request)
 		// .andExpect(status().isOk())
 		// .andExpect(

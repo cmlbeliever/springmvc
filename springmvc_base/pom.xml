@@ -10,7 +10,6 @@
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.mvc>4.1.5.RELEASE</spring.mvc>
 		<spring.web>4.1.6.RELEASE</spring.web>
-		<spring.test>4.1.6.RELEASE</spring.test>
 		<joda.version>2.7</joda.version>
 		<jackson.version>2.5.2</jackson.version>
 		<log4j>1.2.17</log4j>
@@ -47,14 +46,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate.valid}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-			<version>${spring.test}</version>
-		</dependency>
-
+	
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
