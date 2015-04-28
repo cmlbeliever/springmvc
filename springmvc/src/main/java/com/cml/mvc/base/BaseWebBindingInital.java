@@ -25,7 +25,7 @@ public class BaseWebBindingInital extends ConfigurableWebBindingInitializer {
 		// 设置string自动trim
 		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
 
-		LOG.debug("BaseWebBindingInital->initBinder=====>timeFormatter:"
+		LOG.debug("DefaultWebBindingInitializer->initBinder=====>timeFormatter:"
 				+ timeFormatter);
 	}
 

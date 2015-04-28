@@ -39,11 +39,11 @@
 		</property>
 		<!-- 注入全局的propertiesEditor -->
 		<property name="webBindingInitializer">
-			<bean class="com.cml.mvc.framework.base.BaseWebBindingInital">
+			<bean class="com.cml.mvc.framework.base.DefaultWebBindingInitializer">
 				<property name="timeFormatter" value="yyyy-MM-dd HH:mm:ss"></property>
 				<property name="conversionService" ref="conversionService"></property>
 				<property name="bindingErrorProcessor">
-					<bean class="com.cml.mvc.framework.base.MyBindErrorProcess"></bean>
+					<bean class="com.cml.mvc.framework.base.DefaultBindErrorProcess"></bean>
 				</property>
 				<property name="validator" ref="validator"></property>
 			</bean>
