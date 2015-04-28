@@ -8,5 +8,26 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Configuration -->
+	<bean id="configurationUtil" class="com.cml.mvc.framework.service.ConfigurationUtil">
+		<property name="delegate">
+			<bean class="com.cml.mvc.framework.service.impl.ConfigurationReader">
+				<property name="configLocation">
+					<list>
+						<value>config/config.properties</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
 
 </beans>
