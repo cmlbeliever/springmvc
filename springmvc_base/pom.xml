@@ -176,4 +176,18 @@
 			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<finalName>springmvc-base</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
