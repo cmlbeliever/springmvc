@@ -93,7 +93,7 @@
 	</bean>
 
 	<!-- 异常错误信息捕获 -->
-	<bean name="exceptionResolver" class="com.cml.mvc.framework.exception.MyExceptionHandler">
+	<bean name="exceptionResolver" class="com.cml.mvc.framework.exception.JsonExceptionHandler">
 		<property name="messageSource" ref="messageSource"></property>
 	</bean>
 
