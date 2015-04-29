@@ -10,5 +10,5 @@
 
 	<import resource="applicationContext.xml" />
 	<import resource="applicationContext-datasource.xml" />
-	<import resource="com/cml/mvc/web/*/resouce/*.spring.xml" />
+	<import resource="classpath*:com/cml/mvc/web/*/resource/*.spring.xml" />
 </beans>

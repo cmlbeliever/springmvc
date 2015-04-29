@@ -3,17 +3,4 @@
     PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
         "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
 <configuration>
-<typeAliases>
-		<typeAlias type="com.lawson.batch.bean.TPointBean" alias="TPointBean"/>
-		<typeAlias type="com.lawson.batch.bean.TPosDifferentCouponBean" alias="TPosDifferentCouponBean"/>
-		<typeAlias type="com.lawson.batch.bean.TBatchLogBean" alias="TBatchLogBean"/>
-		<typeAlias type="com.lawson.batch.bean.TRealSaleBean" alias="TRealSaleBean"/>
-		<typeAlias type="com.lawson.batch.bean.TUserCouponBean" alias="TUserCouponBean"/>
-		<typeAlias type="com.lawson.batch.bean.TPosSaleLogBean" alias="TPosSaleLogBean"/>
-		<typeAlias type="com.lawson.batch.bean.TPosSaleComodityLogBean" alias="TPosSaleComodityLogBean"/>
-	</typeAliases>
-	
-	<typeHandlers>
-		<typeHandler javaType="org.joda.time.DateTime"  handler="cn.com.lawson.framework.dao.mybatis.typehandler.JodaDateTimeTypeHandler"/> 
-	</typeHandlers>
 </configuration>

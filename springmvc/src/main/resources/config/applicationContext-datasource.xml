@@ -29,7 +29,7 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis-configuration.xml" />
+		<property name="configLocation" value="classpath:config/mybatis-configuration.xml" />
 		<!-- 自动扫描beans包名 -->
 		<property name="typeAliasesPackage" value="com.cml.mvc.beans"></property>
 		 <property name="mapperLocations" value="classpath:com/cml/mvc/web/**/resource/*.sql.xml"></property> 
