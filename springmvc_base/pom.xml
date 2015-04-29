@@ -6,7 +6,7 @@
 	<groupId>springmvc</groupId>
 	<artifactId>springmvc-base</artifactId>
 	<version>1.0</version>
-	
+
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<spring.mvc>4.1.5.RELEASE</spring.mvc>
@@ -32,6 +32,7 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<mysql.connector>5.1.35</mysql.connector>
 	</properties>
 
 	<repositories>
@@ -43,6 +44,13 @@
 	</repositories>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -226,7 +234,7 @@
 				</includes>
 			</resource>
 		</resources>
-		
+
 		<plugins>
 			<plugin>
 				<groupId>org.bsc.maven</groupId>

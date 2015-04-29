@@ -16,6 +16,8 @@
 	<!-- 数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
 		<property name="driverClass" value="${jdbc.driverClassName}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 		<property name="autoCommitOnClose" value="false" />
@@ -32,7 +34,8 @@
 		<property name="configLocation" value="classpath:config/mybatis-configuration.xml" />
 		<!-- 自动扫描beans包名 -->
 		<property name="typeAliasesPackage" value="com.cml.mvc.beans"></property>
-		 <property name="mapperLocations" value="classpath:com/cml/mvc/web/**/resource/*.sql.xml"></property> 
+		<property name="mapperLocations"
+			value="classpath:com/cml/mvc/web/**/resource/*.sql.xml"></property>
 	</bean>
 
 
