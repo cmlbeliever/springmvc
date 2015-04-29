@@ -20,7 +20,6 @@ import com.cml.mvc.framework.util.ErrorsUtil;
 import com.cml.mvc.model.User;
 import com.cml.mvc.validator.UserValidator;
 
-@Controller
 public class ValidTestController {
 
 	Log log = LogFactory.getLog(ValidTestController.class);

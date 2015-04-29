@@ -12,12 +12,15 @@ import com.cml.mvc.web.user.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	public UserController() {
+		System.out.println("init======================================");
+	}
 
 	@Resource
 	private UserService userService;
 
 	@ResponseBody
-	@RequestMapping("/addUser")
+	@RequestMapping("addUser")
 	public User addUser() {
 
 		System.out.println("ccccc");
