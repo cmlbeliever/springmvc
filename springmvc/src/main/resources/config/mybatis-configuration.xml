@@ -3,4 +3,9 @@
     PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
         "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
 <configuration>
+
+	<typeHandlers>
+		<typeHandler javaType="org.joda.time.DateTime"
+			handler="com.cml.mvc.framework.dao.typehandler.JodaDateTimeTypeHandler" />
+	</typeHandlers>
 </configuration>

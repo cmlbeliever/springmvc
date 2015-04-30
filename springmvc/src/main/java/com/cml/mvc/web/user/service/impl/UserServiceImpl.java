@@ -1,5 +1,7 @@
 package com.cml.mvc.web.user.service.impl;
 
+import java.util.List;
+
 import com.cml.mvc.beans.User;
 import com.cml.mvc.web.user.dao.UserMapper;
 import com.cml.mvc.web.user.service.UserService;
@@ -15,6 +17,11 @@ public class UserServiceImpl implements UserService {
 
 	public void setUserDao(UserMapper userDao) {
 		this.userDao = userDao;
+	}
+
+	@Override
+	public List<User> getUsers() {
+		return userDao.getUsers();
 	}
 
 }

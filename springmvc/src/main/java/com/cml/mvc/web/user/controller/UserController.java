@@ -1,5 +1,7 @@
 package com.cml.mvc.web.user.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -12,9 +14,6 @@ import com.cml.mvc.web.user.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	public UserController() {
-		System.out.println("init======================================");
-	}
 
 	@Resource
 	private UserService userService;
@@ -32,6 +31,14 @@ public class UserController {
 		System.out.println("ddddd");
 
 		return user;
+
+	}
+
+	@ResponseBody
+	@RequestMapping("queryUser")
+	public List<User> queryUser() {
+		System.out.println(userService.getUsers());
+		return userService.getUsers();
 
 	}
 }

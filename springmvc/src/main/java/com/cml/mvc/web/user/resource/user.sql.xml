@@ -13,4 +13,13 @@
 			)
 
 	</insert>
+	
+	<select id="getUsers" resultType="User">
+		SELECT
+			id				AS		id,
+			name			AS		name,
+			update_date		AS		updateDate
+		FROM
+			t_user
+	</select>
 </mapper>

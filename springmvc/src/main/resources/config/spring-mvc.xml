@@ -74,7 +74,6 @@
 		<!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
 		<property name="validationMessageSource" ref="messageSource" />
 	</bean>
-
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -83,6 +82,9 @@
 				<value>application/json;charset=UTF-8</value>
 				<value>text/html;charset=UTF-8</value>
 			</list>
+		</property>
+		<property name="objectMapper">
+			<bean class="com.cml.mvc.framework.converter.DateTimeConverter"></bean>
 		</property>
 	</bean>
 

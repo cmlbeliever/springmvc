@@ -33,17 +33,18 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<mysql.connector>5.1.35</mysql.connector>
+		<jackson.mapper>2.5.3</jackson.mapper>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>a</id>
-			<url>http://maven.oschina.net/content/groups/public/</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-joda</artifactId>
+			<version>${2.5.3}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -314,4 +315,40 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>codehaus</id>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+
+		<repository>
+			<id>ibiblio</id>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+		</repository>
+
+		<repository>
+			<id>jahia</id>
+			<url>http://maven.jahia.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>repo1</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+
+		<repository>
+			<id>springsource</id>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+		<!-- <repository> <id>atlassian</id> <url>http://repository.atlassian.com/maven2</url> 
+			</repository> -->
+
+		<repository>
+			<id>a</id>
+			<url>http://maven.oschina.net/content/groups/public/</url>
+			<layout>default</layout>
+		</repository>
+
+	</repositories>
 </project>
