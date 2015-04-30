@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-joda</artifactId>
-			<version>${2.5.3}</version>
+			<version>${jackson.mapper}</version>
 		</dependency>
 
 
