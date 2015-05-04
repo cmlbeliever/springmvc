@@ -4,6 +4,6 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="user.tiles" extends="mvc.base">
-		<put-attribute name="page1" value="/WEB-INF/admin/index.html" />
+		<put-attribute name="page1" value="/WEB-INF/admin/login.jsp" />
 	</definition>
 </tiles-definitions>
