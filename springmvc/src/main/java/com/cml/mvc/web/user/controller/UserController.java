@@ -20,7 +20,7 @@ public class UserController {
 
 	@RequestMapping("tiles")
 	public String tileTest() {
-		return "user.tiles";
+		return "jsp/admin/login";
 	}
 
 	@ResponseBody
