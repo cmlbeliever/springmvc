@@ -102,10 +102,20 @@
 
 	<!-- 取代mvc:annotation-driven> end -->
 
+	<!-- 视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
+		<property name="order" value="2" />
+	</bean>
+
+	<!-- 整合tiles -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="1" />
 	</bean>
 
 	<!-- 异常错误信息捕获 -->
@@ -134,5 +144,20 @@
 			</set>
 		</property>
 	</bean>
+
+	<!--############## 框架tiles设置 ############## -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/tiles.xml</value>
+				<value>classpath:com/cml/mvc/web/*/resource/*.tiles.xml</value>
+			</list>
+		</property>
+		<!-- resolving preparer names as Spring bean definition names -->
+		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory" />
+	</bean>
+
 
 </beans>

@@ -18,6 +18,11 @@ public class UserController {
 	@Resource
 	private UserService userService;
 
+	@RequestMapping("tiles")
+	public String tileTest() {
+		return "user.tiles";
+	}
+
 	@ResponseBody
 	@RequestMapping("addUser")
 	public User addUser() {

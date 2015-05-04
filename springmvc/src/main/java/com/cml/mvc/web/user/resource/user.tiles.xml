@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="user.tiles" extends="mvc.base">
+		<put-attribute name="page1" value="/WEB-INF/jsp/test/page1.jsp" />
+		<put-attribute name="page3" value="/WEB-INF/jsp/test/page2.jsp" />
+	</definition>
+</tiles-definitions>
