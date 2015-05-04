@@ -25,7 +25,7 @@
 						<a href="index.html"><i class="halflings-icon home"></i></a>
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
-					<h2>Login to your account</h2>
+					<h2>XXX系统后台登陆</h2>
 					<form class="form-horizontal" action="index.html" method="post">
 						<fieldset>
 							
@@ -41,15 +41,15 @@
 							</div>
 							<div class="clearfix"></div>
 							
-							<label class="remember" for="remember"><input type="checkbox" id="remember" />Remember me</label>
+							<label class="remember" for="remember"><input type="checkbox" id="remember" />记住密码</label>
 
 							<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary">登陆</button>
 							</div>
 							<div class="clearfix"></div>
 					</form>
 					<hr>
-					<h3>Forgot Password?</h3>
+					<h3>忘记密码?</h3>
 					<p>
 						No problem, <a href="#">click here</a> to get a new password.
 					</p>	
@@ -57,9 +57,9 @@
 			</div><!--/row-->
 			
 
-	</div><!--/.fluid-container-->
+	</div>
 	
-		</div><!--/fluid-row-->
+		</div>
 	
 
 	
