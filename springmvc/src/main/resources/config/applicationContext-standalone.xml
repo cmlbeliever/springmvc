@@ -10,5 +10,6 @@
 
 	<import resource="applicationContext.xml" />
 	<import resource="applicationContext-datasource.xml" />
+	<import resource="applicationContext-security-shiro.xml" />
 	<import resource="classpath*:com/cml/mvc/web/*/resource/*.spring.xml" />
 </beans>
