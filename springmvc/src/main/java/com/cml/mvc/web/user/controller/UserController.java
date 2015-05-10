@@ -1,5 +1,6 @@
 package com.cml.mvc.web.user.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -42,7 +43,7 @@ public class UserController {
 		if (!result.hasErrors()) {
 			try {
 				Subject subject = SecurityUtils.getSubject();
-				
+
 				// 已经登录，无需再次登录
 				if (!subject.isAuthenticated()) {
 					subject.login(new UsernamePasswordToken(
@@ -50,7 +51,7 @@ public class UserController {
 									.isRemember()));
 				}
 
-				model.setViewName("admin.top");
+				model.setViewName("redirect:/admin/index.mvc");
 			} catch (AuthenticationException e) {
 				result.reject(I18nMessageKey.Login.FAIL);
 			}
