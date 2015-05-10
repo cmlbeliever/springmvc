@@ -3,9 +3,16 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="mvc.base" template="/WEB-INF/jsp/base/base.jsp">
-		<put-attribute name="page1" value="/WEB-INF/jsp/test/page1.jsp" />
-		<put-attribute name="page2" value="/WEB-INF/jsp/test/page2.jsp" />
-		<put-attribute name="page3" value="/WEB-INF/jsp/test/page3.jsp" />
+	<definition name="mvc.base" template="/WEB-INF/jsp/layout/layout.jsp">
+		<put-attribute name="title" value="后台管理中心" />
+		<put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/layout/menu.jsp" />
+		<put-attribute name="content">
+			<definition template="/WEB-INF/jsp/layout/content.jsp">
+				<put-attribute name="content.home" value="主页"></put-attribute>
+				<put-attribute name="content.page.title" value="个人中心"></put-attribute>
+			</definition>
+		</put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
 	</definition>
 </tiles-definitions>

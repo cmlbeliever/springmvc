@@ -5,22 +5,19 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 import com.cml.mvc.framework.security.realm.AuthenticationService;
 import com.cml.mvc.framework.security.realm.AuthenticationUser;
 
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-	private static final Log log = LogFactory
-			.getLog(AuthenticationServiceImpl.class);
+	private static final Logger log = Logger.getLogger(AuthenticationServiceImpl.class);
 
 	@Override
 	public AuthenticationUser doLogin(String username, String password) {
-		log.info("用户登录====》" + username + "," + password);
 		
-		System.out.println("用户登录====》" + username + "," + password+","+StringUtils.equals(username, password));
+		log.info("用户登录====》" + username + "," + password);
 
 		if (StringUtils.equals(username, password)) {
 			List<String> roles = new ArrayList<String>();

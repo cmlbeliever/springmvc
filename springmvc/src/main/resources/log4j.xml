@@ -8,14 +8,19 @@
 	    </layout>
 	</appender>
 	
-	<logger name="com.cml.mvc.framework.security.realm" >
-		<level value="ALL" />
-	</logger>
-	<logger name="com.cml.**" >
+	<logger name="org.apache.commons.logging.Log" >
 		<level value="ALL" />
 	</logger>
 	
-	<logger name="com.cml.mvc.base.*" >
+	<logger name="com.cml.mvc.framework.security.realm" >
+		<level value="ALL" />
+	</logger>
+	
+	<logger name="com.cml" >
+		<level value="ALL" />
+	</logger>
+	
+	<logger name="com.cml.mvc.base" >
 		<level value="ALL" />
 	</logger>
 	
@@ -125,7 +130,7 @@
 	</logger>
 	
 	<root>
-	    <level value="ALL" />
+	    <priority value="ALL"></priority>
 		<appender-ref ref="STDOUT" />
 	</root>
 	

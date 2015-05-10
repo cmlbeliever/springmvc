@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -18,13 +19,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cml.mvc.beans.User;
 import com.cml.mvc.constant.I18nMessageKey;
-import com.cml.mvc.framework.util.ErrorsUtil;
 import com.cml.mvc.web.user.bean.UserLoginBean;
 import com.cml.mvc.web.user.service.UserService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+	private static final Logger log = Logger.getLogger(UserController.class);
 
 	@Resource
 	private UserService userService;
@@ -36,20 +38,25 @@ public class UserController {
 
 		model.setViewName("forward:/login.jsp");
 
-		if (result.hasErrors()) {
-			System.out.println("错误信息：" + ErrorsUtil.getAllErrors(result));
-		} else {
+		// 参数都正确
+		if (!result.hasErrors()) {
 			try {
-				System.out.println("登录进来了。。。");
 				Subject subject = SecurityUtils.getSubject();
-				subject.login(new UsernamePasswordToken(login.getUsername(),
-						login.getPassword(), login.isRemember()));
-				model.setViewName("user.tiles");
+				
+				// 已经登录，无需再次登录
+				if (!subject.isAuthenticated()) {
+					subject.login(new UsernamePasswordToken(
+							login.getUsername(), login.getPassword(), login
+									.isRemember()));
+				}
+
+				model.setViewName("admin.top");
 			} catch (AuthenticationException e) {
 				result.reject(I18nMessageKey.Login.FAIL);
 			}
-
 		}
+
+		log.info("登录结果：" + model.getViewName());
 
 		return model;
 	}

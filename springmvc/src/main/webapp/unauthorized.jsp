@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-没有权限看哦
-</body>
+没有权限看哦W
+</body>"src/main/webapp/unauthorized.jsp"
 </html>
