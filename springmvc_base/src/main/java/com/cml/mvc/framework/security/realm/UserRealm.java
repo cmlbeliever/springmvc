@@ -2,14 +2,18 @@ package com.cml.mvc.framework.security.realm;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+
+import com.cml.mvc.framework.constant.Constant;
 
 public class UserRealm extends AuthorizingRealm {
 
@@ -24,7 +28,17 @@ public class UserRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection collection) {
 		log.debug("UserRealm==>doGetAuthorizationInfo:" + collection);
-		return null;
+		System.out.println("===" + "UserRealm==>doGetAuthorizationInfo:"
+				+ collection);
+
+		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+
+		String username = (String) SecurityUtils.getSubject().getSession(true)
+				.getAttribute(Constant.Session.USERNAME);
+
+		info.addRoles(authcService.getRoles(username));
+
+		return info;
 	}
 
 	/**
@@ -33,6 +47,7 @@ public class UserRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
+
 		log.debug("UserRealm==>doGetAuthenticationInfo:" + token.getPrincipal()
 				+ "," + token.getCredentials());
 
@@ -50,6 +65,9 @@ public class UserRealm extends AuthorizingRealm {
 
 		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username,
 				password, getName());
+
+		SecurityUtils.getSubject().getSession(true)
+				.setAttribute(Constant.Session.USERNAME, username);
 
 		return info;
 	}

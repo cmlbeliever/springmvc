@@ -1,6 +1,7 @@
 package com.cml.mvc.web.user.service.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +19,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Override
 	public AuthenticationUser doLogin(String username, String password) {
 		log.info("用户登录====》" + username + "," + password);
+		
+		System.out.println("用户登录====》" + username + "," + password+","+StringUtils.equals(username, password));
 
 		if (StringUtils.equals(username, password)) {
 			List<String> roles = new ArrayList<String>();
@@ -28,6 +31,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 			return user;
 		}
 		return null;
+	}
+
+	@Override
+	public List<String> getRoles(String username) {
+		System.out.println("获取juese:" + username);
+
+		return Arrays.asList("1", "2");
 	}
 
 }

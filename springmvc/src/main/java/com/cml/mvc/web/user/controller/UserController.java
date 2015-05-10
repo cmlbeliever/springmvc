@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cml.mvc.beans.User;
+import com.cml.mvc.constant.I18nMessageKey;
 import com.cml.mvc.framework.util.ErrorsUtil;
 import com.cml.mvc.web.user.bean.UserLoginBean;
 import com.cml.mvc.web.user.service.UserService;
@@ -29,23 +30,26 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping("/login")
-	public ModelAndView login(@Valid @ModelAttribute("user") UserLoginBean login, BindingResult result,
-			ModelAndView model) {
+	public ModelAndView login(
+			@Valid @ModelAttribute("user") UserLoginBean login,
+			BindingResult result, ModelAndView model) {
+
+		model.setViewName("forward:/login.jsp");
 
 		if (result.hasErrors()) {
 			System.out.println("错误信息：" + ErrorsUtil.getAllErrors(result));
 		} else {
 			try {
+				System.out.println("登录进来了。。。");
 				Subject subject = SecurityUtils.getSubject();
 				subject.login(new UsernamePasswordToken(login.getUsername(),
 						login.getPassword(), login.isRemember()));
+				model.setViewName("user.tiles");
 			} catch (AuthenticationException e) {
-				result.reject("用户名或密码错误");
+				result.reject(I18nMessageKey.Login.FAIL);
 			}
 
 		}
-
-		model.setViewName("forward:/login.jsp");
 
 		return model;
 	}

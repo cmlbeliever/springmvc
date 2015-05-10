@@ -1,5 +1,7 @@
 package com.cml.mvc.framework.security.realm;
 
+import java.util.List;
+
 public interface AuthenticationService {
 	/**
 	 * 用户登录
@@ -9,4 +11,6 @@ public interface AuthenticationService {
 	 * @return
 	 */
 	public AuthenticationUser doLogin(String username, String password);
+	
+	public List<String> getRoles(String username);
 }
