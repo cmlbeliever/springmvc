@@ -11,8 +11,8 @@ public class AdminController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping("/login")
-	public String login() {
-		return "jsp/admin/login";
+	@RequestMapping("/index")
+	public String index() {
+		return "mvc.base";
 	}
 }

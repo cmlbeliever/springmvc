@@ -98,7 +98,8 @@
             	/img/**=anon
             	/js/**=anon
             	/user/login*=anon
-            	/user.tiles=roles[1]
+            	/ui/*=authc,roles["role1"]
+            	/form/*=authc,roles["role1","role2"]
                 /** = authc
             </value>
         </property>

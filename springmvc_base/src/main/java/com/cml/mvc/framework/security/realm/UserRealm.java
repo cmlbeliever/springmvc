@@ -26,7 +26,9 @@ public class UserRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection collection) {
 
-		log.debug("UserRealm==>doGetAuthorizationInfo:" + collection);
+		// 用户名也可以从这里获取
+		log.debug("UserRealm==>doGetAuthorizationInfo:"
+				+ collection.getPrimaryPrincipal().toString());
 
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
