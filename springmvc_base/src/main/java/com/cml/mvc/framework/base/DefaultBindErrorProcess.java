@@ -9,8 +9,6 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.BindingErrorProcessor;
 import org.springframework.validation.BindingResult;
 
-import com.cml.mvc.framework.service.ConfigurationUtil;
-
 /**
  * 绑定错误信息处理类<br/>
  * (1)字段miss错误信息：fieldName+".miss"<br/>
